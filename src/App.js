@@ -1,5 +1,5 @@
 //导入 countStore
-import {counterStore} from './store/counter'
+import {counterStore} from './store/counter.Store'
 //导入中间件mobx react
 import {observer} from "mobx-react-lite";
 

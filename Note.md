@@ -82,3 +82,64 @@ export default observer(App)
 2. 通过get关键词 定义计算属性
 3. 在 makeAutoObservable 方法中标记计算属性
 
+```js
+import { computed, makeAutoObservable } from 'mobx'
+
+class CounterStore {
+  list = [1, 2, 3, 4, 5, 6]
+  constructor() {
+    makeAutoObservable(this, {
+      filterList: computed
+    })
+  }
+  // 修改原数组
+  changeList = () => {
+    this.list.push(7, 8, 9)
+  }
+  // 定义计算属性
+  get filterList () {
+    return this.list.filter(item => item > 4)
+  }
+}
+
+const counter = new CounterStore()
+
+export default counter
+```
+
+app.js
+
+```js
+//导入 countStore
+import {counterStore} from './store/counter'
+//导入中间件mobx react
+import {observer} from "mobx-react-lite";
+
+function App() {
+  return (
+    <div className="App">
+      {/*使用:  */}
+      {counterStore.count}
+
+      {counterStore.filterList.join('-')}
+      <button  onClick={counterStore.addCount}>+1</button>
+      <button  onClick={counterStore.addList}>修改数组</button>
+    </div>
+  );
+}
+
+export default observer(App);
+
+```
+
+## Mobx模块化
+
+![img.png](img.png)
+
+
+![img_1.png](img_1.png)
+
+
+
+
+

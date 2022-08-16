@@ -8,7 +8,10 @@ function App() {
     <div className="App">
       {/*使用:  */}
       {counterStore.count}
+
+      {counterStore.filterList.join('-')}
       <button  onClick={counterStore.addCount}>+1</button>
+      <button  onClick={counterStore.addList}>修改数组</button>
     </div>
   );
 }

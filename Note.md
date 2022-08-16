@@ -46,7 +46,7 @@ const counterStore = new CounterStore()
 export {counterStore}
 ```
 
-连接React
+## 连接React
 
 1.导入实例
 
@@ -74,3 +74,11 @@ function App() {
 // 包裹组件让视图响应数据变化
 export default observer(App)
 ```
+
+## 计算属性
+
+实现步骤
+1. 声明一个存在的数据
+2. 通过get关键词 定义计算属性
+3. 在 makeAutoObservable 方法中标记计算属性
+

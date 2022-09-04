@@ -24,6 +24,6 @@ class CounterStore{
 }
 
 //4.实例化 然后导出给react使用
-const counterStore = new CounterStore()
+// const counterStore = new CounterStore()
 
-export {counterStore}
+export {CounterStore}

@@ -141,5 +141,43 @@ export default observer(App);
 
 
 
+![img_2.png](img_2.png)
 
 
+```jsx
+
+import React from 'react'
+
+import counter from './counterStore'
+import task from './taskStore'
+
+
+class RootStore {
+  constructor() {
+    this.counterStore = counter
+    this.taskStore = task
+  }
+}
+
+//实例化操作,下面是模板代码
+const rootStore = new RootStore()
+
+//使用 React conntext机制 完成 统一方法封存
+// Provider value = {传递的数据}
+//查找机制: useContext 优先中Provider value 查找, 如果找不到就会找 createContext 方法传递过来的默认参数
+const context = React.createContext(rootStore)
+
+//这个方法作用: 通过useContext拿到rootStore实例对象 然后返回
+//只要在业务组件中 调用useStore() -> rootStore
+const useStore = () => React.useContext(context)
+
+export { useStore }
+```
+![img_4.png](img_4.png)
+
+![img_6.png](img_6.png)
+
+
+![img_5.png](img_5.png)
+
+![img_3.png](img_3.png)

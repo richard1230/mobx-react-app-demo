@@ -181,3 +181,8 @@ export { useStore }
 ![img_5.png](img_5.png)
 
 ![img_3.png](img_3.png)
+
+## 基础总结
+
+
+![img_8.png](img_8.png)
